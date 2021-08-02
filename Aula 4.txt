@@ -1,0 +1,229 @@
+Operadores aritméticos
+
+Operação;
+Subtração;
+Divisão;
+Multiplicação.
+
+Notação em linguagens
+
+Adição = +
+Subtração = -
+Multiplicação = *
+Divisão = /
+Exponenciação = **
+
+Entrada:
+
+-> float P1 = Receber nota da P1 (0 ~ 10)
+-> float P2 = Receber nota da P2
+-> float P3 = Receber nota da P3
+-> float P4 = Receber nota da P4
+-> int CD = Valor da Divisão será 4
+-> char NomeAluno = Receber nome do Aluno
+
+Processamento
+
+-> float soma = P1 + P2 + P3 + P4;
+-> float Resultado = soma/ CD.
+
+Saída
+
+-> Retornar mensagem: "A nota do aluno "%NomeAluno" teve nota: "%Resultado""
+
+Operadores relacionais:
+
+Igual a - =
+Diferente de : <> ou # (<> mais comum nessas linguagens)
+Maior que >
+Menor que <
+Maior ou igual >=
+Menor ou igual <=
+
+Eles sempre retornam com verdadeiro ou falso;
+
+A = 5
+B = 3
+
+A = B - falso (o)
+A <> B - Verdadeiro (1)
+A > B - Verdadeiro (1)
+A < B - Falso (0)
+A >= B - Verdadeiro (1)
+A <= B - Falso (0)
+
+Operadores lógicos servem para commbinar resultados de uma expressão e retornando o resultado final dela como 0(falso) ou 1(verdadeiro)
+
+Pseudocódigo da camisa e calça:
+
+O aluno está com camiza azul? true
+	-> Dar um bombom
+O aluno está com camisa amarela? false
+	_> Dar um Brownie
+O aluno está de calça Jeans? false
+	-> Dar o chocolate que ele não tem. 
+
+--------Segundo código--------
+
+O aluno está de calça Jeans?
+	-> Dar um bombom
+	-> Dar um Brownie
+Caso contrário:
+	-> O aluno está com camisa azul?
+		-> Dar um bombom
+	-> O aluno está com camisa amarela?
+		-> Dar um Brownie.	
+
+AND = E, para expressões onde todas as condições são verdadeiras
+OR = OU, para expressões onde pelo menos uma das condições se satisfaz;
+NOT = NÃO, é utilizado para inverter o valor da condição.
+
+Aplicando:
+
+O aluno está com camiza azul and calça Jeans?? true
+	-> Dar um bombom
+	-> Brownie
+NOT (O aluno está com camisa amarela and calça jeans?) True
+	_> Dar um Brownie
+	-> Dar um bombom
+O aluno está com camisa amarela or camisa azul:
+	-> O aluno está com camisa azul
+		-> Dar um bombom
+	-> O aluno está com camisa amarela
+		-> Dar um brownie
+O aluno está de calça Jeans? false
+	-> Dar o chocolate que ele não tem.
+
+A base da programação é a comparação entre dois valores ou combinações;
+
+A - 5
+B - 4
+C - 3
+D - 6
+
+------ Aula 05 --------
+
+Álgebra Booleana é a materia mãe para a programação;
+
+É um cojunto de regras de capazes de relacionar circunstâncias de maneira a permitir uma tomada de decisão;
+
+A tabela verdade é uma função desse modelo;
+
+Portas lógicas:
+
+A ideia da programação é montar um circuito lógico para que o eletrônico possa operar através dele;
+
+Exemplo da lâmpada;
+
+Arduíno utiliza muitos circuitos lógicos para funcionar;
+
+Circuito Lógico - Um circuito lógico é uma associação de portas lógicas;
+
+Sempre fazemos os testes lógicos da esquerda para direita
+
+
+------ Aula 06 ---------
+
+Variavel X
+
+Se a variavel X é divisivel por 2
+	-> Retorne True
+Caso contrário
+	-> Retorne Falso.
+
+Comandos de decisão - São responsáveis por conduzir nosso programa para uma condição que não é uma sequência;
+
+Se então (If then)
+Senão (else)
+Caso selecione (case select)
+
+Geralmente o If Then vem acompanhado de Else, 
+o Then vai direto para o statusAluno
+
+Case select
+Entrada:
+
+-> float P1 = Receber nota da P1 (0 ~ 10)
+-> float P2 = Receber nota da P2
+-> float P3 = Receber nota da P3
+-> float P4 = Receber nota da P4
+-> int CD = Valor da Divisão será 4
+-> int Media = 7
+-> char NomeAluno = Receber nome do Aluno
+-> char statusAluno = "";
+-> char materia = input.User(O programa sempre vai pedir que o usuário informe a matéria);
+
+Processamento
+
+-> Case materia:
+	-> SELECT "Português":
+		-> Then 
+		-> float soma = p1+p4
+		-> float resultado = soma/CD
+		-> float (Resultado >=Media)
+			-> Then statusAluno = "Aprovado"
+		-> Else
+			-> statusAluno = "Reprovado"
+	> SELECT "Matemática":
+		-> Then 
+		-> float soma = P1 + P2 + P3 + P4
+		-> float resultado = soma/CD
+		-> float (Resultado >=Media)
+			-> Then statusAluno = "Aprovado"
+		-> Else
+			-> statusAluno = "Reprovado"
+
+
+-> float soma = P1 + P2 + P3 + P4;
+-> float Resultado = soma/ CD.
+-> IF(resultado>= Media)
+	-> Then statusAluno = "Aprovado"
+-> Else
+	-> statusAluno = "Reprovado"
+Saída
+
+-> Retornar mensagem: "A nota do aluno "%NomeAluno" teve nota: "%Resultado" e seu estatus ´é: "%aprovado%."
+
+
+---------- Aula 07 -------
+
+Estrutura de Repetição - São artificios utilizados na programação para se operar uma lógica;
+
+Buscamos quando desejamos que um conjunto de números seja processado determinadas vezes;
+
+While e FOR
+
+While - Lógica parecida com o IF, porém ele executa o bloco várias vezes até que a condição desejada seja alcançada;
+
+	> SELECT "Matemática":
+		-> Then 
+		-> float soma = P1 + P2 + P3 + P4
+		-> float resultado = soma/CD
+		-> float (Resultado >=Media)
+			-> Then statusAluno = "Aprovado"
+		-> Else
+			-> statusAluno = "Reprovado"
+
+	->while(resultado < Media):
+		-> float resultadoAno = resultado
+		-> pr = aplicar mais uma prova
+		-> resultado = resultado + pr /2
+
+FOR - Setar uma quantidade de vezes que iremos executar ele sem parar;
+O que é i++? 
+Incrementador pega a variável desejada e transforma em uma progessão aritmética
+
+	list resultadosTurma = somatorio(resultado)
+	float mediaTurma = 0;
+	float notaAluno = 0;
+	for(int i = 1; i<= resultadosTurma.size; i++)
+		notaAluno = resultadosTurma [i]
+		if (i==1)
+			then mediaTurma = notaAluno
+		else:
+			mediaTurma = mediaTurma + notaAluno / 2
+			
+
+
+
+

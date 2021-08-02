@@ -1,0 +1,39 @@
+Desafio de cálculo de distância entre duas cidades:
+
+Entrada:
+
+-> Coletar a posição de Iowa no plano cartesiano;
+-> Coletar a posição de Nova York no plano cartesiano;
+
+Processamento
+
+-> Identificar a distância de Iowa para Nova York no Eixo X
+-> Identificar a distância de Iowa para Nova York no Eixo Y
+-> Calcular a distância no eixo X elevando a segunda potência;
+-> Calcular a distância no eixo Y elevando a segunda potência;
+-> Somar o resultado da potência do eixo X com o resultado da pontência do Eixo Y;
+-> Calcular a raiz quadrada do resultado da soma das potências;
+
+Saída:
+
+-> Retornar a distância entre as duas cidades
+
+--------------------------------------------------------
+
+Algoritmo de Cálculo de Estoque Médio
+
+Pseudocódigo:
+
+Entrada:
+
+-> Receber os valores da quantidade mínima da peça;
+-> Receber os valores de quantidade máxima da peça;
+
+Processamento:
+
+-> Somar a Quantidade Mínima com a Quantidade Máxima;
+-> Dividir o resultado por dois;
+
+Saída:
+
+-> Retornar o Resultado do Estoque Médio;

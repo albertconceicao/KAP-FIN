@@ -1,0 +1,61 @@
+Aula 3:
+
+Refaturando o código:
+
+*Aula 3:*
+
+Elementos básicos que todo código possui:
+
+- Constantes;
+São valores fixos que não alteram durante o processamento
+O elemento CD, que não altera é a constante de nosso código;
+- Variáveis;
+São valores que irão alterar durante o processamento
+Os elementos P1 a P4 são as variáveis
+Refaturar - Rescrever o nosso código para que ele fique mais legível ou que fique um pouco melhor;
+
+Código está funcionando, não se preocupe,
+
+Todos os valores importantes devem estar alocados na Entrada para automatizar o processo de cálculo ao máximo;
+
+Por que adicionamos P1?
+
+Porque desejamos atribuir o Receber nota da P1 na constante P1, para fins de armazenamento;
+
+Tipar uma variável é dizer para esse código o que esperar desse valor
+
+O computador precisa de uma espécie de valor para ele entender o código;
+
+Elementos de tipagem:
+
+Int = Números inteiros
+Char = Caracteres
+Float = Para números reais
+Double = Para números reais só que maiores
+Bool = Verdadeiro ou Falso (não aceitam nenhum tipo diferente).
+
+Todo computador utiliza uma notação binária que são em 0 e 1, na qual o computador utiliza como base de cálculo;
+
+Exemplos - Verdadeiro ou Falso;
+Quente ou frio e etc;
+
+
+
+
+Entrada:
+
+-> float P1 = Receber nota da P1 (0 ~ 10)
+-> float P2 = Receber nota da P2
+-> float P3 = Receber nota da P3
+-> float P4 = Receber nota da P4
+-> int CD = Valor da Divisão será 4
+-> char NomeAluno = Receber nome do Aluno
+
+Processamento
+
+-> float soma = Somar as notas da P1, P2, P3 e P4;
+-> float Resultado = Dividir a soma pelo valor da CD.
+
+Saída
+
+-> Retornar mensagem: "A nota do aluno "%NomeAluno" teve nota: "%Resultado""

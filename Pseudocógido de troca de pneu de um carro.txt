@@ -1,0 +1,46 @@
+Objetivo - Trocar um pneu do carro
+
+Passos para trocar um pneu:
+
+-> Verificar quantos pneus serão trocados;
+-> Verificar o modelo do pneu a ser trocado;
+-> Verificar qual loja fornece o modelo do pneu a ser trocado;
+
+-> Trocar o pneu do carro
+
+
+Entrada
+
+Analisar a necessidade de trocar o pneu do carro
+
+Processamento
+
+-> Verificar se tem o pneu a ser trocado na reserva;
+		-> Se sim, então realizar a troca, caso contrário verificar o modelo do pneu para comprar; 
+		-> Verificar qual loja fornece o modelo do pneu a ser trocado;
+		-> Perguntar ao vendendor quanto custa o pneu a ser trocado;
+		-> Ir até a loja;
+		-> Procurar o vendedor que conversou pelo telefone;
+		-> Pedir desconto ao vendedor do pneu a ser trocado;
+		-> Colocar a quantidade de pneu necessária a ser comprada no carrinho;
+		-> Ir para o caixa;
+		-> Realizar o pagamento;
+		-> Voltar para o processo de troca do pneu;
+-> Pegar o macaco e o kit de segurança dentro do carro;
+		-> Se tiver o kit de segurança, então pegue para trocar o pneu, caso contrário peça emprestado;
+						-> Se estiver na rodovia, então sinalize para outros carros fornecerem o kit, caso esteja em casa peça aos vizinhos;
+-> Se estiver na estrada então retire todos as pessoas de dentro do carro, caso contrário inicie o processo de troca;
+-> Se desejar fazer, siga os passos abaixo, caso contrário contrate um mecânico ou chame um amigo;
+
+		-> Se estiver na rua, então posicione o triângulo a 30 m de distância do carro, caso esteja em casa não sinalize;
+		-> Posicione o macaco embaixo no local indicado;
+		-> Erga o veículo e afroxe os parafusos;
+		-> Retire o pneu a ser troca e insira o novo;
+		-> Aperte os parafusos com a chave e coloque o carro no chão com o macaco;
+		-> Se o kit de segurança for seu guarde no local indicado no carro, caso contrário guarde e devolva;
+-> Caso tenha contratado um mecânico, realize o pagamento, caso contrário o processo está concluído;
+
+
+Saída:
+
+Pneu trocado;

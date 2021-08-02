@@ -1,0 +1,15 @@
+Objetivo - Somar dois números e multiplicar o resultado pelo primeiro:
+
+Entrada:
+
+-> Coletar os dois números;
+
+Processamento:
+
+-> Somar o primeiro número com o segundo;
+-> Coletar o resultado;
+-> Multiplique o resultado pelo primeiro número
+
+Saída:
+
+-> Resultado da multiplicação
