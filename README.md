@@ -1,4 +1,0 @@
-# KAP-FIN
-
-DESAFIO DE GRUPO JS
-

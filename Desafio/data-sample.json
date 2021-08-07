@@ -3,8 +3,8 @@
     "usuario": "mat_acc",
     "nome": "Matheus Accioly",
     "idade": 22,
-    "document-type": "cnpjs",
-    "document-number": "15.555.555-5",
+    "document_type": "cnpjs",
+    "document_number": "15.555.555-5",
     "nome-ficticio": "Ximira e Xeló",
     "cartões": {
       "id": "card-vv-00000.000.02",

@@ -165,11 +165,7 @@ function ContaAtiva(data){
 
 /* ********* ALBERT *****************/
 
-/*
 
-Criar uma função que processa uma compra(Quando chamar essa função, diminuir o total de itens para venda).
-Criar uma função que retorna o status e o link para o pagamento
-*/
 
 function retornaTelefone(data){
     let telefoneComprador = data.transacao.customer.phone;
@@ -184,7 +180,6 @@ function retornaTipoeNumbero(data){
     return ` O tipo de documento é ${tipoDocumento} e o número é ${numeroDocumento}`
 } // Funcionando
 
-retornaTipoeNumbero();
 
 function enderecoEntrega(data){
 
@@ -216,6 +211,7 @@ function qtdVendidas(data){
 function retornaProduto(data){
     let nomeProduto = data.transacao.items[0].title;
     let valorProduto = data.transacao.items[0].unit_price;
+    let qtdProdutos = data.transacao.items[0].quantity;
 
     return `O nome do produto é: ${nomeProduto}, o seu valor é:  R$${valorProduto},00 e a quantidade é de:  ${qtdProdutos}`
 }// Funcionando
@@ -226,8 +222,4 @@ function statusELink(data){
 
     return `O status do pagamento é o ${statusPagamento} e o link para pagamento é o ${linkPagamento} `
 } // Funcionando
-
-/*
-Criar uma função que processa uma compra(Quando chamar essa função, diminuir o total de itens para venda).
-*/
 
