@@ -171,14 +171,14 @@ function retornaTelefone(data){
     let telefoneComprador = data.transacao.customer.phone;
 
     return `O telefone do comprador é ${telefoneComprador}`
-}// Funcionando
+}
 
 function retornaTipoeNumbero(data){
     let tipoDocumento = data.documentType;
     let numeroDocumento = data.documentNumber;
 
     return ` O tipo de documento é ${tipoDocumento} e o número é ${numeroDocumento}`
-} // Funcionando
+} 
 
 
 function enderecoEntrega(data){
@@ -193,20 +193,20 @@ function enderecoEntrega(data){
     let pais = data.transacao.shipping.address.country;
 
     return ` O Endereço para entrega é ${rua}, Número: ${numero}, Bairro: ${bairro}, Cidade: ${cidade}, Estado: ${estado}, CEP: ${cep}, País: ${pais}`
-}// Funcionando
+}
 
 function taxaEData(data){
     let taxa = data.transacao.shipping.fee;
     let entrega = data.transacao.shipping.delivery_date;
 
     return ` A taxa de entrega é de ${taxa} e a data de entrega é ${entrega}`
-} // Funcionando
+} 
 
 function qtdVendidas(data){
     let qtdProdutos = data.transacao.items[0].quantity;
 
      return ` A quantidade de produtos sendo vendidas é: ${qtdProdutos}`
-} // Funcionando
+} 
 
 function retornaProduto(data){
     let nomeProduto = data.transacao.items[0].title;
@@ -214,12 +214,24 @@ function retornaProduto(data){
     let qtdProdutos = data.transacao.items[0].quantity;
 
     return `O nome do produto é: ${nomeProduto}, o seu valor é:  R$${valorProduto},00 e a quantidade é de:  ${qtdProdutos}`
-}// Funcionando
+}
 
 function statusELink(data){
     let statusPagamento = data.links_pagamento.status;
     let linkPagamento = data.links_pagamento.url;
 
     return `O status do pagamento é o ${statusPagamento} e o link para pagamento é o ${linkPagamento} `
-} // Funcionando
+} 
 
+function processaCompra(data){
+    let estoque = 30;
+    let compra = data.transacao.items[0].quantity;
+    let statusCompra = data.transacao.status;
+    let estoqueRestante = estoque - compra
+
+    if(statusCompra == "autorizado"){
+        console.log(`Parabéns!!, você realizou uma venda, o número de itens disponíveis para mais vendas é de: ${estoqueRestante}`)
+    }else{
+        console.log(`O estoque permanece ${estoque}, pois a compra foi rejeitada`)
+    }
+}
