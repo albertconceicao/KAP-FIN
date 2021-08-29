@@ -1,0 +1,126 @@
+{
+    "pagamento01": {
+        "object": "transaction",
+        "amount": 2000,
+        "payment_method": "credit card",
+        "card_holder_name": "Matheus M Accioly",
+        "card_last_digits": "1111",
+        "card_fist_digits": "654321",
+        "card_brand": "Visa",
+        "card_expire_date": "09/22",
+        "boleto_url": null,
+        "boleto_barcode": null,
+        "boleto_expiration_date": null,
+        "antifraud_score": 70,
+        "customer": {
+            "name": "Matheus Accioly",
+            "country": "BR",
+            "email": "mtheus.acc@growwfin.com.br"
+        },
+        "items": [
+            {
+                "id": "r123",
+                "title": "casaco groww",
+                "quantity": 2
+            },
+            {
+                "id": "a123",
+                "title": "camisa groww",
+                "quantity": 3
+            }
+        ]
+    },
+    "pagamento02": {
+        "object": "transaction",
+        "amount": 300,
+        "payment_method": "credit card",
+        "card_holder_name": "Victória A Duningham",
+        "card_last_digits": "2222",
+        "card_fist_digits": "987654",
+        "card_brand": "MasterCard",
+        "card_expire_date": "06/25",
+        "boleto_url": null,
+        "boleto_barcode": null,
+        "boleto_expiration_date": null,
+        "antifraud_score": 5,
+        "customer": {
+            "name": "Vicc Duningham",
+            "country": "BR",
+            "email": "Vicc.dude@growwfin.com.br"
+        },
+        "items": [
+            {
+                "id": "z123",
+                "title": "Cadeira Gamer groww",
+                "quantity": 1
+            },
+            {
+                "id": "b123",
+                "title": "Lapis groww",
+                "quantity": 3
+            },
+            {
+                "id": "g123",
+                "title": "Livro groww",
+                "quantity": 2
+            },
+            {
+                "id": "h123",
+                "title": "Fone groww",
+                "quantity": 5
+            }
+        ]
+    },
+    "pagamento03": {
+        "object": "transaction",
+        "amount": 10000,
+        "payment_method": "credit card",
+        "card_holder_name": "Davis Z Cabral",
+        "card_last_digits": "3333",
+        "card_fist_digits": "123456",
+        "card_brand": "AlphaCard",
+        "card_expire_date": "01/20",
+        "boleto_url": null,
+        "boleto_barcode": null,
+        "boleto_expiration_date": null,
+        "antifraud_score": 50,
+        "customer": {
+            "name": "Davis Cabral",
+            "country": "BR",
+            "email": "d.vis@growwfin.com.br"
+        },
+        "items": [
+            {
+                "id": "t123",
+                "title": "Computador groww",
+                "quantity": 1
+            }
+        ]
+    },
+    "pagamento04": {
+        "object": "transaction",
+        "amount": 2000,
+        "payment_method": "credit card",
+        "card_holder_name": "Thiago B Guedes",
+        "card_last_digits": "4444",
+        "card_fist_digits": "567890",
+        "card_brand": "CenturyCard",
+        "card_expire_date": "04/25",
+        "boleto_url": null,
+        "boleto_barcode": null,
+        "boleto_expiration_date": null,
+        "antifraud_score": 98,
+        "customer": {
+            "name": "Thiago Guedes",
+            "country": "BR",
+            "email": "thiago.guedes@growwfin.com.br"
+        },
+        "items": [
+            {
+                "id": "m123",
+                "title": "Monitor groww",
+                "quantity": 1
+            }
+        ]
+    }
+}
