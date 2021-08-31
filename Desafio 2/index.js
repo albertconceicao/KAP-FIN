@@ -105,6 +105,19 @@ async function main() {
         //execute as funções aqui
         const nomeUser = retornaNome(dataReturn);
         console.log(nomeUser);
+        function verificarCobranca(data) {
+            const metodo = data.payment_method
+
+                if (metodo == "credit card") {
+                return (`Pagamento feito com cartão`)
+            } else if (metodo == "boleto") {
+                return (`Pagamento feito com boleto`)
+            } else {
+                return (`Forma de pagamento não identificada`)
+            }
+
+        };
+           
     }
 }
 main();
