@@ -103,24 +103,30 @@ async function main() {
     for (let getUrl of urlApi) {
         const dataReturn = await readApi(getUrl);
         //execute as funções aqui
+        
         const nomeUser = retornaNome(dataReturn);
         console.log(nomeUser);
-        function verificarCobranca(data) {
-            const metodo = data.payment_method
-
-                if (metodo == "credit card") {
-                return (`Pagamento feito com cartão`)
-            } else if (metodo == "boleto") {
-                return (`Pagamento feito com boleto`)
-            } else {
-                return (`Forma de pagamento não identificada`)
-            }
-
-        };
+        const cobranca = verificarCobranca(dataReturn);
+        console.log(cobranca);
+        const compradores = nomeCompradores(dataReturn);
+        console.log(compradores)
            
     }
 }
 main();
+
+function verificarCobranca(data) {
+    const metodo = data.payment_method
+
+        if (metodo == "credit card") {
+        return (`Pagamento feito com cartão`)
+    } else if (metodo == "boleto") {
+        return (`Pagamento feito com boleto`)
+    } else {
+        return (`Forma de pagamento não identificada`)
+    }
+
+};
 
 function retornaNome(data) {
     return `Nome do usuário: ${data.customer.name}`;
@@ -131,7 +137,7 @@ function retornaNome(data) {
 /*  KAMILA */
 
 function nomeCompradores(data) {
-    const nomeImpresso = data.pagamento01.card_holder_name
+    const nomeImpresso = data.card_holder_name
     return (`O nome impresso no cartão é ${nomeImpresso}`)
 };
 
