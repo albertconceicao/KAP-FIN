@@ -230,7 +230,7 @@ function dadosCadastrais(data) {
 
 function verificaItens(data){
     
-    var itensSolicitados = 0;
+    var itensSolicitados = data.items.id;
     var itensBaseDados = produtosDisponiveis.id;
     
     if(itensSolicitados == itensBaseDados){
@@ -247,7 +247,7 @@ function verificaQuantidade(){
     }
     
    function retornaQuantidade(data){
-    var qtdItensSolicitados = 0;
+    var qtdItensSolicitados = data.items.quantity;
     let qtdItensBase = data.amount;
 
     if(qtdItensSolicitados == qtdItensBase){
@@ -259,7 +259,7 @@ function verificaQuantidade(){
 }
 
 function calculaCompra(data){
-    let qtdItensSolicitados2 = 0;
+    let qtdItensSolicitados2 = data.items.quantity;
     const produtosPreco = produtosDisponiveis.price;
     const totalItens = produtosPreco * qtdItensSolicitados2;
     const totalCompra = data.amount;
