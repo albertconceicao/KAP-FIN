@@ -104,13 +104,30 @@ async function main() {
         const dataReturn = await readApi(getUrl);
         //execute as funções aqui
         
+        /*
         const nomeUser = retornaNome(dataReturn);
         console.log(nomeUser);
+        console.log('--------------------');
         const cobranca = verificarCobranca(dataReturn);
         console.log(cobranca);
+        console.log('--------------------');
         const compradores = nomeCompradores(dataReturn);
-        console.log(compradores)
-           
+        console.log(compradores);
+        console.log('--------------------');
+        const quantidade = verificaQuantidade(dataReturn);
+        console.log(quantidade);
+        const itens = verificaItens(dataReturn);
+        console.log(itens);
+        const fraude = scoreAntifraude(dataReturn);
+        console.log(fraude);
+        const cadastros = dadosCadastrais(dataReturn);
+        console.log(cadastros);
+        const dados = dadosBoleto(dataReturn);
+        console.log(dados);*/
+
+        const itens = verificaItens(dataReturn);
+        console.log(itens);
+        const quantidade = verificaQuantidade(dataReturn);
     }
 }
 main();
@@ -127,11 +144,66 @@ function verificarCobranca(data) {
     }
 
 };
-
+ 
 function retornaNome(data) {
     return `Nome do usuário: ${data.customer.name}`;
 }
 
+
+/*  ALBERT */
+
+function verificaItens(data){
+    
+    const itensSolicitados = data.items[0].id;
+    const itensBaseDados = produtosDisponiveis.title;
+    console.log(data)
+    for(let i = 0; i <this.length; i++){
+        itensSolicitados.push(i)
+    }
+    if(itensSolicitados == itensBaseDados){
+        console.log(`Os itens solicitados ${itensSolicitados} constam na base de dados`)
+    }else {
+        console.log(`Os itens solicitados ${itensSolicitados} não constam na base de dados`)
+    }
+}
+
+function verificaQuantidade(data){
+
+    const itensSolicitados2 = data.items[0].id;
+    const itensBaseDados2 = produtosDisponiveis.id;
+    const qtdItensSolicitados = data.items[0].quantity;
+    const qtdItensBase = produtosDisponiveis[0].avaiable;
+
+
+    if( itensSolicitados2 == itensBaseDados2){
+        console.log(`A quantidade solicitada ${qtdItensSolicitados} está disponível na base de dados`)
+    }else {
+        console.log(`Não temos a quantidade solicitado, o número de itens disponíveis é de ${qtdItensBase}`)
+    }
+}
+
+
+
+function calculaCompra(data){
+    let qtdItensSolicitados2 = data.items[0].quantity;
+    
+    
+    const produtosPreco = produtosDisponiveis.price;
+    const totalItens = (produtosPreco * qtdItensSolicitados2);
+    const totalCompra = data.amount;
+
+    if(totalCompra == totalItens){
+        alert('Itens adicionados ao carrinho, clique aqui para fechar seu pedido de compra')
+    }
+    if(totalCompra < totalItens){
+        alert('O valor da compra ficou menor, vamos adicionar mais itens ao seu carrinho :D')
+    }
+    if(totalCompra > totalItens){
+        alert('Tivemos um pequeno problema com nosso servidor de compras, pedimos desculpas. Clique aqui para adicionar itens ao carrinho novamente')
+    }
+
+    
+}
 
 
 /*  KAMILA */
@@ -245,53 +317,3 @@ function dadosCadastrais(data) {
     }
 }
 
-/*  ALBERT */
-
-function verificaItens(data){
-    
-    var itensSolicitados = data.items.id;
-    var itensBaseDados = produtosDisponiveis.id;
-    
-    if(itensSolicitados == itensBaseDados){
-        console.log(`Os itens solicitados ${itensSolicitados} constam na base de dados`)
-    }else {
-        console.log(`Os itens solicitados ${itensSolicitados} não constam na base de dados`)
-    }
-}
-
-function verificaQuantidade(){
-    
-    if(itensSolicitados == itensBaseDados){
-        return retornaQuantidade();
-    }
-    
-   function retornaQuantidade(data){
-    var qtdItensSolicitados = data.items.quantity;
-    let qtdItensBase = data.amount;
-
-    if(qtdItensSolicitados == qtdItensBase){
-        console.log(`A quantidade solicitada ${qtdItensSolicitados} está disponível na base de dados`)
-    }else {
-        console.log(`Não temos a quantidade solicitado, o número de itens disponíveis é de ${qtdItensBase}`)
-    }
-   }
-}
-
-function calculaCompra(data){
-    let qtdItensSolicitados2 = data.items.quantity;
-    const produtosPreco = produtosDisponiveis.price;
-    const totalItens = produtosPreco * qtdItensSolicitados2;
-    const totalCompra = data.amount;
-
-    if(totalCompra == totalItens){
-        alert('Itens adicionados ao carrinho, clique aqui para fechar seu pedido de compra')
-    }
-    if(totalCompra < totalItens){
-        alert('O valor da compra ficou menor, vamos adicionar mais itens ao seu carrinho :D')
-    }
-    if(totalCompra > totalItens){
-        alert('Tivemos um pequeno problema com nosso servidor de compras, pedimos desculpas. Clique aqui para adicionar itens ao carrinho novamente')
-    }
-
-    
-}
