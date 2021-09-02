@@ -104,9 +104,10 @@ async function main() {
         const dataReturn = await readApi(getUrl);
         //execute as funções aqui
         
-        /*
+        
         const nomeUser = retornaNome(dataReturn);
         console.log(nomeUser);
+        /*
         console.log('--------------------');
         const cobranca = verificarCobranca(dataReturn);
         console.log(cobranca);
@@ -124,7 +125,8 @@ async function main() {
         console.log(cadastros);
         const dados = dadosBoleto(dataReturn);
         console.log(dados);*/
-
+        const posicoes = verificaPosicoes(dataReturn);
+        console.log(posicoes)
         const itens = verificaItens(dataReturn);
         console.log(itens);
         const quantidade = verificaQuantidade(dataReturn);
@@ -152,21 +154,44 @@ function retornaNome(data) {
 
 /*  ALBERT */
 
-function verificaItens(data){
-    
-    const itensSolicitados = data.items[0].id;
-    const itensBaseDados = produtosDisponiveis.title;
-    console.log(data)
-    for(let i = 0; i <this.length; i++){
-        itensSolicitados.push(i)
+
+function verificaPosicoes(data){
+    for(let i = 0; i < data.items.length; i++){
+        let itensSolicitados = data.items[i].id
+        console.log(itensSolicitados)
     }
-    if(itensSolicitados == itensBaseDados){
+}
+function verificaItens(data){
+    let itensSolicitados = data.items[0].id;
+    let itensBase = produtosDisponiveis[1].id;
+    /* for(let i = 0; i < itensSolicitados.length; i++){
+        console.log(itensSolicitados[i])
+    } */
+    
+    console.log(data)
+    if(itensSolicitados === itensBase){
+        console.log(`os itens ${itensSolicitados} constam na base de dados`)
+    }else {
+        console.log(`os itens ${itensSolicitados} não constam na base de dados`)
+    }
+}
+
+/* function verificaItens(data){
+    
+    const itensSolicitados = data.items[0].title;
+    const itensBaseDados = produtosDisponiveis[0].title;
+    console.log(data)
+    
+    if(itensSolicitados === itensBaseDados){
         console.log(`Os itens solicitados ${itensSolicitados} constam na base de dados`)
     }else {
         console.log(`Os itens solicitados ${itensSolicitados} não constam na base de dados`)
     }
+    produtosDisponiveis.forEach(posicao => {
+        console.log(produtosDisponiveis)
+    });
 }
-
+ */
 function verificaQuantidade(data){
 
     const itensSolicitados2 = data.items[0].id;
@@ -317,3 +342,8 @@ function dadosCadastrais(data) {
     }
 }
 
+/* Rascunho
+
+
+
+*/
