@@ -198,6 +198,11 @@ function verificaQuantidade(data){
     const itensBaseDados2 = produtosDisponiveis.id;
     const qtdItensSolicitados = data.items[0].quantity;
     const qtdItensBase = produtosDisponiveis[0].avaiable;
+    const nomeCartaoBase = cardsAvaiable.card_holder_name;
+    const marcaCartaoBase = cardsAvaiable.card_brand;
+    const dataExpiracaoBase = cardsAvaiable.card_holder_name;
+    const nomeCartaoBase = cardsAvaiable.card_holder_name;
+    const nomeCartaoBase = cardsAvaiable.card_holder_name;
 
 
     if( itensSolicitados2 == itensBaseDados2){
@@ -210,26 +215,38 @@ function verificaQuantidade(data){
 
 
 function calculaCompra(data){
-    let qtdItensSolicitados2 = data.items[0].quantity;
+    let valorFinal;
+    for (produto of data.items){
+        let idCompra = produto.id;
+        try{
+            let produtoDatabase = produto.quantity * produtoDatabase.price;
+        } catch(error){
+            return error
+        }
+
+    }
+    
+    if(valorFinal === data.amount){
+        return 'Compra executada com sucesso'
+    } else if (valorFinal < data.amount) {
+        return 'Créditos para próxima compra'
+    } else {
+        return 'Compra cancelada por estar abaixo do valor dos itens'
+    }
+
     
     
-    const produtosPreco = produtosDisponiveis.price;
-    const totalItens = (produtosPreco * qtdItensSolicitados2);
-    const totalCompra = data.amount;
-
-    if(totalCompra == totalItens){
-        alert('Itens adicionados ao carrinho, clique aqui para fechar seu pedido de compra')
-    }
-    if(totalCompra < totalItens){
-        alert('O valor da compra ficou menor, vamos adicionar mais itens ao seu carrinho :D')
-    }
-    if(totalCompra > totalItens){
-        alert('Tivemos um pequeno problema com nosso servidor de compras, pedimos desculpas. Clique aqui para adicionar itens ao carrinho novamente')
-    }
-
     
 }
 
+function percorreProdutos(id){
+    for (produtos of produtosDisponiveis){
+        if (produtos.id === id){
+            return produtos
+        }
+    }
+    throw "Produto não encontrado";
+}
 
 /*  KAMILA */
 
