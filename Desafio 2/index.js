@@ -129,7 +129,7 @@ async function main() {
         console.log(posicoes)
         const itens = verificaItens(dataReturn);
         console.log(itens);
-        const quantidade = verificaQuantidade(dataReturn);
+      /*   const quantidade = verificaQuantidade(dataReturn); */
     }
 }
 main();
@@ -168,7 +168,7 @@ function verificaItens(data){
         console.log(itensSolicitados[i])
     } */
     
-    console.log(data)
+    /* console.log(data) */
     if(itensSolicitados === itensBase){
         console.log(`os itens ${itensSolicitados} constam na base de dados`)
     }else {
