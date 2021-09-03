@@ -104,9 +104,18 @@ async function main() {
         const dataReturn = await readApi(getUrl);
         //execute as funções aqui
         
-        
+       /*  
         const nomeUser = retornaNome(dataReturn);
         console.log(nomeUser);
+        const compra = calculaCompra(dataReturn);
+        console.log(compra)
+        const itens = verificaItens(dataReturn);
+        console.log(itens)
+        console.log */
+        const quantidade = verificaQuantidade(dataReturn);
+        console.log(quantidade);
+        console.log('------------------------------------------------------------------------');
+       
         /*
         console.log('--------------------');
         const cobranca = verificarCobranca(dataReturn);
@@ -125,10 +134,11 @@ async function main() {
         console.log(cadastros);
         const dados = dadosBoleto(dataReturn);
         console.log(dados);*/
-        const posicoes = verificaPosicoes(dataReturn);
+       /*  const posicoes = verificaPosicoes(dataReturn);
         console.log(posicoes)
         const itens = verificaItens(dataReturn);
-        console.log(itens);
+        console.log(itens); */
+       
       /*   const quantidade = verificaQuantidade(dataReturn); */
     }
 }
@@ -154,75 +164,114 @@ function retornaNome(data) {
 
 /*  ALBERT */
 
-
-function verificaPosicoes(data){
-    for(let i = 0; i < data.items.length; i++){
-        let itensSolicitados = data.items[i].id
-        console.log(itensSolicitados)
-    }
-}
 function verificaItens(data){
-    let itensSolicitados = data.items[0].id;
-    let itensBase = produtosDisponiveis[1].id;
-    /* for(let i = 0; i < itensSolicitados.length; i++){
-        console.log(itensSolicitados[i])
-    } */
     
-    /* console.log(data) */
-    if(itensSolicitados === itensBase){
-        console.log(`os itens ${itensSolicitados} constam na base de dados`)
-    }else {
-        console.log(`os itens ${itensSolicitados} não constam na base de dados`)
+    let itensSolicitados= [];
+    const itensBase = [];
+
+    for(let i = 0; i < data.items.length; i++){
+        itensSolicitados.push(data.items[i].id);
+       
     }
+    for(let i = 0; i < produtosDisponiveis.length; i++){
+        itensBase.push(produtosDisponiveis[i].id);
+      
+    }
+  
+    if(itensBase.includes(itensSolicitados[0])){
+        console.log(`Os itens solicitados estão contidos na base de dados`)
+    }else {
+        console.log(`Os itens solicitados não estão contidos na base de dados`)
+    }
+
+
+    
+    
+    
 }
 
-/* function verificaItens(data){
-    
-    const itensSolicitados = data.items[0].title;
-    const itensBaseDados = produtosDisponiveis[0].title;
-    console.log(data)
-    
-    if(itensSolicitados === itensBaseDados){
-        console.log(`Os itens solicitados ${itensSolicitados} constam na base de dados`)
-    }else {
-        console.log(`Os itens solicitados ${itensSolicitados} não constam na base de dados`)
+
+ function verificaQuantidade(data){
+  
+    let qtdSolicitada= [];
+    let qtdBase = [];
+    let itensCompra= [];
+    let itensDisponiveis = [];
+    let itensIguais = [];
+    /* let itensIguais = []; */
+
+    // Criando Loopings para poder armazenar quantidades e ids do Data e da Base de Dados
+    for(let i = 0; i < data.items.length; i++){
+        qtdSolicitada.push(data.items[i].quantity);
+        /*  console.log(itensSolicitados) */
     }
-    produtosDisponiveis.forEach(posicao => {
-        console.log(produtosDisponiveis)
-    });
-}
+
+    for(let i = 0; i < produtosDisponiveis.length; i++){
+        qtdBase.push(produtosDisponiveis[i].avaiable);
+        /* console.log(itensBase) */
+    }
+
+    for(let i = 0; i < data.items.length; i++){
+        itensCompra.push(data.items[i].id);
+       
+    }
+
+    for(let i = 0; i < produtosDisponiveis.length; i++){
+        itensDisponiveis.push(produtosDisponiveis[i].id);
+      
+    }
+   /*  console.log(qtdSolicitada)
+    console.log(qtdBase) */
+    
+    // Criando objeto para armazenar organizar quantidades e ids do data e da base
+  /*   this.quantidadeBase = qtdBase,
+    this.quantidadeSolicitada = qtdSolicitada,
+    this.itensBD = itensDisponiveis,
+    this.itensCP = itensCompra */
+
+    // Próximo passo é pensar em como atribuir o id do Array com a quantidade na base.
+    // Posso usar o map?
+    // Como posso criar um array de objeto atribuindo o id à quantidade?
+    
+    console.log(itensCompra)
+    console.log(itensDisponiveis)
+    console.log(qtdSolicitada)
+    console.log(qtdBase)
+    
+    console.log(itensDisponiveis.includes(itensCompra[0]));
+    console.log(qtdBase.includes(qtdSolicitada[0]))
+    /* if(itensCP.includes(itensBD[0]) && quantidadeSolicitada.includes(quantidadeBase[0])){
+        console.log(`Os itens solicitados estão contidos na base de dados`)
+    }else {
+        console.log(`Os itens solicitados não estão contidos na base de dados`)
+    }
  */
-function verificaQuantidade(data){
+    
 
-    const itensSolicitados2 = data.items[0].id;
-    const itensBaseDados2 = produtosDisponiveis.id;
-    const qtdItensSolicitados = data.items[0].quantity;
-    const qtdItensBase = produtosDisponiveis[0].avaiable;
-    const nomeCartaoBase = cardsAvaiable.card_holder_name;
-    const marcaCartaoBase = cardsAvaiable.card_brand;
-    const dataExpiracaoBase = cardsAvaiable.card_holder_name;
-    const nomeCartaoBase = cardsAvaiable.card_holder_name;
-    const nomeCartaoBase = cardsAvaiable.card_holder_name;
-
-
+/* 
     if( itensSolicitados2 == itensBaseDados2){
         console.log(`A quantidade solicitada ${qtdItensSolicitados} está disponível na base de dados`)
     }else {
         console.log(`Não temos a quantidade solicitado, o número de itens disponíveis é de ${qtdItensBase}`)
-    }
-}
+    }  */
+} 
 
 
 
 function calculaCompra(data){
     let valorFinal;
+    
     for (produto of data.items){
         let idCompra = produto.id;
+        let produtoDatabase = '';
         try{
-            let produtoDatabase = produto.quantity * produtoDatabase.price;
+            produtoDatabase = percorreProdutos(idCompra)
+            
         } catch(error){
             return error
         }
+        valorFinal = produto.quantity * produtoDatabase.price;
+       /*  console.log(valorFinal) */
 
     }
     
@@ -234,19 +283,19 @@ function calculaCompra(data){
         return 'Compra cancelada por estar abaixo do valor dos itens'
     }
 
-    
+    function percorreProdutos(id){
+        for (produtos of produtosDisponiveis){
+            if (produtos.id === id){
+                return produtos
+            }
+        }
+        throw "Produto não encontrado";
+    }
     
     
 }
 
-function percorreProdutos(id){
-    for (produtos of produtosDisponiveis){
-        if (produtos.id === id){
-            return produtos
-        }
-    }
-    throw "Produto não encontrado";
-}
+
 
 /*  KAMILA */
 
