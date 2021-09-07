@@ -68,6 +68,7 @@ const cardsAvaiable = [
         "card_expire_date": "01/20",
     },
     {
+        "card_holder_name": "Victória A Duningham",
         "card_last_digits": "2222",
         "card_fist_digits": "987654",
         "card_brand": "MasterCard",
@@ -104,42 +105,31 @@ async function main() {
         const dataReturn = await readApi(getUrl);
         //execute as funções aqui
         
-       /*  
+        
         const nomeUser = retornaNome(dataReturn);
         console.log(nomeUser);
         const compra = calculaCompra(dataReturn);
-        console.log(compra)
-        const itens = verificaItens(dataReturn);
-        console.log(itens)
-        console.log */
-        const quantidade = verificaQuantidade(dataReturn);
-        console.log(quantidade);
-        console.log('------------------------------------------------------------------------');
-       
-        /*
-        console.log('--------------------');
-        const cobranca = verificarCobranca(dataReturn);
-        console.log(cobranca);
-        console.log('--------------------');
-        const compradores = nomeCompradores(dataReturn);
-        console.log(compradores);
-        console.log('--------------------');
-        const quantidade = verificaQuantidade(dataReturn);
-        console.log(quantidade);
+        console.log(compra);
         const itens = verificaItens(dataReturn);
         console.log(itens);
+      /*   const quantidade = verificaQuantidade(dataReturn);
+        console.log(quantidade); */
+        const cadastro = verificaDadosCadastrados(dataReturn);
+        console.log(cadastro);
+        
+        const cobranca = verificarCobranca(dataReturn);
+        console.log(cobranca);
+        const compradores = nomeCompradores(dataReturn);
+        console.log(compradores);
+        const marca = verificarMarca(dataReturn);
+        console.log(marca)
         const fraude = scoreAntifraude(dataReturn);
         console.log(fraude);
-        const cadastros = dadosCadastrais(dataReturn);
-        console.log(cadastros);
         const dados = dadosBoleto(dataReturn);
-        console.log(dados);*/
-       /*  const posicoes = verificaPosicoes(dataReturn);
-        console.log(posicoes)
-        const itens = verificaItens(dataReturn);
-        console.log(itens); */
+        console.log(dados);
+        console.log('------------------------------------------------------------------------');
        
-      /*   const quantidade = verificaQuantidade(dataReturn); */
+      
     }
 }
 main();
@@ -184,10 +174,6 @@ function verificaItens(data){
         console.log(`Os itens solicitados não estão contidos na base de dados`)
     }
 
-
-    
-    
-    
 }
 
 
@@ -271,14 +257,14 @@ function calculaCompra(data){
             return error
         }
         valorFinal = produto.quantity * produtoDatabase.price;
-       /*  console.log(valorFinal) */
+   
 
     }
     
     if(valorFinal === data.amount){
         return 'Compra executada com sucesso'
     } else if (valorFinal < data.amount) {
-        return 'Créditos para próxima compra'
+        return 'O cliente possui Créditos para próxima compra'
     } else {
         return 'Compra cancelada por estar abaixo do valor dos itens'
     }
@@ -308,9 +294,9 @@ function verificarCobranca(data) {
     const metodo = data.payment_method
 
     if (metodo == "credit card") {
-        return (`Pagamento feito com cartão`)
+        return (`Pagamento efetuado com cartão`)
     } else if (metodo == "boleto") {
-        return (`Pagamento feito com boleto`)
+        return (`Pagamento efetuado com boleto`)
     } else {
         return (`Forma de pagamento não identificada`)
     }
@@ -375,7 +361,48 @@ function scoreAntifraude(data) {
 
 }
 
-function dadosCadastrais(data) {
+function verificaDadosCadastrados(data){
+    const nomeCartao = data.card_holder_name;
+    const marcaCartao = data.card_brand;
+    const dataExpiracao	 = data.card_expire_date;
+    const primeirosDigitos = data.card_fist_digits;
+    const ultimosDigitos = data.card_last_digits;
+    
+    let validador = 0;
+
+    for (let i = 0; i < cardsAvaiable.length; i++ ){
+        let nomeCartaoDb = cardsAvaiable[i].card_holder_name;
+        let marcaCartadDb = cardsAvaiable[i].card_brand;
+        let dataExpiracaoDb = cardsAvaiable[i].card_expire_date;
+        let primeiroDigitosDb = cardsAvaiable[i].card_fist_digits;
+        let ultimosDigitosDb = cardsAvaiable[i].card_last_digits;
+        
+        if(marcaCartao === marcaCartadDb){
+            validador++;
+        }
+        if(dataExpiracao === dataExpiracaoDb){
+            validador++;
+        }
+        if(primeirosDigitos === primeiroDigitosDb){
+            validador++;
+        }
+        if(ultimosDigitos === ultimosDigitosDb){
+            validador++;
+        }
+        if(nomeCartao === nomeCartaoDb){
+            validador++;
+        }
+        if(validador === 5){
+            return 'Os dados de cadastro são válidos';
+        }
+        
+    }
+
+    return 'Os dados de cadastro são inválidos';
+
+}
+
+/* function dadosCadastrais(data) {
     const comparador1 = data.card_holder_name
     if (comparador1 === cardsAvaiable.card_holder_name) {
         console.log("Tá certo")
@@ -406,7 +433,7 @@ function dadosCadastrais(data) {
     } else {
         console.log("reveja")
     }
-}
+} */
 
 /* Rascunho
 
